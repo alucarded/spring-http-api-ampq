@@ -23,7 +23,7 @@ public class SignupListener {
     SignupParsed parseSignup(Signup signup) {
         // Split first name and surname
         String[] fullNameSplit = parseFullName(signup.getFullName());
-        // Remove spaces from phone number and add French phone prefix (if it does not exist)
+        // Remove spaces from phone number and add Polish phone prefix (if it does not exist)
         String parsedPhone = parsePhoneNumber(signup.getPhone());
         return new SignupParsed(fullNameSplit[0], fullNameSplit[1], parsedPhone);
     }
