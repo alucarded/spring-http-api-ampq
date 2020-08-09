@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SignupListener {
 
-    private static final String FRENCH_PHONE_PREFIX = "+33";
+    private static final String POLISH_PHONE_PREFIX = "+48";
 
     @RabbitListener(queues = {"signups"})
     public void receiveMessage(final Message<Signup> message) {
@@ -32,13 +32,13 @@ public class SignupListener {
         String[] fullNameSplit = fullName.split(" ", 2);
         String firstName = fullNameSplit[0];
         String lastName = fullNameSplit.length > 1 ? fullNameSplit[1] : "";
-        return new String[] {firstName, lastName};
+        return new String[]{firstName, lastName};
     }
 
     String parsePhoneNumber(String phone) {
         String parsedPhone = phone.replace(" ", "");
-        if (!parsedPhone.isEmpty() && !parsedPhone.startsWith(FRENCH_PHONE_PREFIX)) {
-            parsedPhone = FRENCH_PHONE_PREFIX + parsedPhone;
+        if (!parsedPhone.isEmpty() && !parsedPhone.startsWith(POLISH_PHONE_PREFIX)) {
+            parsedPhone = POLISH_PHONE_PREFIX + parsedPhone;
         }
         return parsedPhone;
     }
