@@ -18,12 +18,12 @@ public class SignupListenerTests {
 
     @Test
     void basicPhoneParseTest() {
-        assertEquals("+33546317171", signupListener.parsePhoneNumber("5 46 31 71 71"));
+        assertEquals("+48546317171", signupListener.parsePhoneNumber("5 46 31 71 71"));
     }
 
     @Test
     void withFrenchPrefixPhoneParseTest() {
-        assertEquals("+33546317171", signupListener.parsePhoneNumber(" +3 3 5 46 31 71 71"));
+        assertEquals("+48546317171", signupListener.parsePhoneNumber(" +4 8 5 46 31 71 71"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class SignupListenerTests {
 
     @Test
     void basicMessageTest() {
-        assertEquals(new SignupParsed("John", "Doe", "+33546317171"),
+        assertEquals(new SignupParsed("John", "Doe", "+48546317171"),
                 signupListener.parseSignup(new Signup("John Doe", "5 46 31 71 71")));
     }
 
